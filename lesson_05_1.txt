@@ -57,6 +57,7 @@ root@student:/home/student# zpool create gzip-n /dev/sdc
 root@student:/home/student# zpool create lz4 /dev/sdd
 root@student:/home/student# zpool create lzjb /dev/sde
 root@student:/home/student# zpool create zle /dev/sdf
+
 root@student:/home/student# zpool list
 NAME     SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 gzip     960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
