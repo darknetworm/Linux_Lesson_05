@@ -1,39 +1,9 @@
-Script started on 2023-03-20 20:32:58+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="140" LINES="29"]
-]0;root@student-Mi-Laptop-Air-12-5: /media/student/Linux/otus/lesson05root@student-Mi-Laptop-Air-12-5:/media/student/Linux/otus/lesson05# exitssh student@192.168.57.3
-student@192.168.57.3's password: 
-Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-144-generic x86_64)
+root@student:/home/student# ls -l
+total 3363468
+-rw-r--r-- 1 root    root      3359372 Mar  2 09:16 War_and_Peace.txt
+drwxr-xr-x 2 root    root         4096 Mar 20 17:32 zpoolexport
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Mon 20 Mar 2023 05:33:04 PM UTC
-
-  System load:  0.18               Processes:               128
-  Usage of /:   16.9% of 39.07GB   Users logged in:         0
-  Memory usage: 23%                IPv4 address for enp0s3: 10.0.2.15
-  Swap usage:   0%                 IPv4 address for enp0s8: 192.168.57.3
-
- * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
-   just raised the bar for easy, resilient and secure K8s cluster deployment.
-
-   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
-
-Expanded Security Maintenance for Applications is not enabled.
-
-0 updates can be applied immediately.
-
-Enable ESM Apps to receive additional future security updates.
-See https://ubuntu.com/esm or run: sudo pro status
-
-New release '22.04.2 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-
-Last login: Mon Mar 20 17:30:40 2023 from 192.168.57.1
-]0;student@student: ~[01;32mstudent@student[00m:[01;34m~[00m$ sudo su
-[sudo] password for student: 
-]0;root@student: /home/studentroot@student:/home/student# zpool import -d zpoolexport/
+root@student:/home/student# zpool import -d zpoolexport/
    pool: otus
      id: 6554193320433390805
   state: ONLINE
@@ -44,8 +14,9 @@ Last login: Mon Mar 20 17:30:40 2023 from 192.168.57.1
 	  mirror-0                           ONLINE
 	    /home/student/zpoolexport/filea  ONLINE
 	    /home/student/zpoolexport/fileb  ONLINE
-]0;root@student: /home/studentroot@student:/home/student# zpool import -d zpoolexport/ otus
-]0;root@student: /home/studentroot@student:/home/student# zpool sts[Katus
+
+root@student:/home/student# zpool import -d zpoolexport/ otus
+root@student:/home/student# zpool status
   pool: otus
  state: ONLINE
   scan: none requested
@@ -58,7 +29,8 @@ config:
 	    /home/student/zpoolexport/fileb  ONLINE       0     0     0
 
 errors: No known data errors
-]0;root@student: /home/studentroot@student:/home/student# zpool get all otus
+
+root@student:/home/student# zpool get all otus
 NAME  PROPERTY                       VALUE                          SOURCE
 otus  size                           480M                           -
 otus  capacity                       0%                             -
@@ -114,27 +86,23 @@ otus  feature@spacemap_v2            active                         local
 otus  feature@allocation_classes     enabled                        local
 otus  feature@resilver_defer         enabled                        local
 otus  feature@bookmark_v2            enabled                        local
-]0;root@student: /home/studentroot@student:/home/student# zfs get available otus
+
+root@student:/home/student# zfs get available otus
 NAME  PROPERTY   VALUE  SOURCE
 otus  available  350M   -
-]0;root@student: /home/studentroot@student:/home/student# zfs get readonly otus
+
+root@student:/home/student# zfs get readonly otus
 NAME  PROPERTY  VALUE   SOURCE
 otus  readonly  off     default
-]0;root@student: /home/studentroot@student:/home/student# zfs get recordsize otus
+
+root@student:/home/student# zfs get recordsize otus
 NAME  PROPERTY    VALUE    SOURCE
 otus  recordsize  128K     local
-]0;root@student: /home/studentroot@student:/home/student# zfs get con[Kmpression otus
+
+root@student:/home/student# zfs get conmpression otus
 NAME  PROPERTY     VALUE     SOURCE
 otus  compression  zle       local
-]0;root@student: /home/studentroot@student:/home/student# zfs get checksum otus
+
+root@student:/home/student# zfs get checksum otus
 NAME  PROPERTY  VALUE      SOURCE
 otus  checksum  sha256     local
-]0;root@student: /home/studentroot@student:/home/student# exit
-exit
-]0;student@student: ~[01;32mstudent@student[00m:[01;34m~[00m$ exit
-logout
-Connection to 192.168.57.3 closed.
-]0;root@student-Mi-Laptop-Air-12-5: /media/student/Linux/otus/lesson05root@student-Mi-Laptop-Air-12-5:/media/student/Linux/otus/lesson05# exit
-exit
-
-Script done on 2023-03-20 20:35:40+03:00 [COMMAND_EXIT_CODE="0"]
