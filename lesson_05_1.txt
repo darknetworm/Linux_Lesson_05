@@ -1,0 +1,151 @@
+Script started on 2023-03-20 18:22:13+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]0;root@student-Mi-Laptop-Air-12-5: /home/studentroot@student-Mi-Laptop-Air-12-5:/home/student# exitvagrant ssh[7Pexit[Kssh student@192.168.57.3
+The authenticity of host '192.168.57.3 (192.168.57.3)' can't be established.
+ECDSA key fingerprint is SHA256:cWD0FW4Tr0aBKNjSy4n5Nn6083DZH6/TJ+gM778e6Pw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.57.3' (ECDSA) to the list of known hosts.
+student@192.168.57.3's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-144-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon 20 Mar 2023 03:22:37 PM UTC
+
+  System load:  0.0                Processes:               129
+  Usage of /:   11.9% of 39.07GB   Users logged in:         1
+  Memory usage: 23%                IPv4 address for enp0s3: 10.0.2.15
+  Swap usage:   0%                 IPv4 address for enp0s8: 192.168.57.3
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '22.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Mon Mar 20 15:21:42 2023 from 192.168.57.1
+]0;student@student: ~[01;32mstudent@student[00m:[01;34m~[00m$ sudo su
+[sudo] password for student: 
+]0;root@student: /home/studentroot@student:/home/student# wget -O War_and_Peace.txt http://www.gutenberg.org/ebooks/2600.txt.utf-8
+--2023-03-20 15:22:57--  http://www.gutenberg.org/ebooks/2600.txt.utf-8
+Resolving www.gutenberg.org (www.gutenberg.org)... 152.19.134.47, 2610:28:3090:3000:0:bad:cafe:47
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://www.gutenberg.org/ebooks/2600.txt.utf-8 [following]
+--2023-03-20 15:22:58--  https://www.gutenberg.org/ebooks/2600.txt.utf-8
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://www.gutenberg.org/cache/epub/2600/pg2600.txt [following]
+--2023-03-20 15:23:02--  https://www.gutenberg.org/cache/epub/2600/pg2600.txt
+Reusing existing connection to www.gutenberg.org:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 3359372 (3.2M) [text/plain]
+Saving to: ‘War_and_Peace.txt’
+
+War_and_Peace.txt     0%[                    ]       0  --.-KB/s               War_and_Peace.txt     1%[                    ]  49.55K   131KB/s               War_and_Peace.txt     2%[                    ]  94.18K   156KB/s               War_and_Peace.txt    10%[=>                  ] 349.52K   351KB/s               War_and_Peace.txt    15%[==>                 ] 493.52K   412KB/s               War_and_Peace.txt    24%[===>                ] 797.52K   531KB/s               War_and_Peace.txt    29%[====>               ] 957.52K   552KB/s               War_and_Peace.txt    34%[=====>              ]   1.11M   582KB/s               War_and_Peace.txt    39%[======>             ]   1.28M   606KB/s               War_and_Peace.txt    45%[========>           ]   1.47M   582KB/s               War_and_Peace.txt    58%[==========>         ]   1.89M   683KB/s               War_and_Peace.txt    66%[============>       ]   2.14M   721KB/s    eta 2s     War_and_Peace.txt    72%[=============>      ]   2.33M   726KB/s    eta 2s     War_and_Peace.txt    80%[===============>    ]   2.59M   762KB/s    eta 2s     War_and_Peace.txt    87%[================>   ]   2.79M   700KB/s    eta 1s     War_and_Peace.txt    95%[==================> ]   3.06M   730KB/s    eta 1s     War_and_Peace.txt   100%[===================>]   3.20M   764KB/s    in 4.4s    
+
+2023-03-20 15:23:07 (739 KB/s) - ‘War_and_Peace.txt’ saved [3359372/3359372]
+
+]0;root@student: /home/studentroot@student:/home/student# ls blk[K[K[K[Kblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0    7:0    0 49.9M  1 loop /snap/snapd/18357
+loop1    7:1    0 63.3M  1 loop /snap/core20/1828
+loop2    7:2    0   62M  1 loop /snap/core20/1611
+loop3    7:3    0 91.9M  1 loop /snap/lxd/24061
+loop4    7:4    0 67.8M  1 loop /snap/lxd/22753
+sda      8:0    0   40G  0 disk 
+├─sda1   8:1    0    1M  0 part 
+└─sda2   8:2    0   40G  0 part /
+sdb      8:16   0    1G  0 disk 
+sdc      8:32   0    1G  0 disk 
+sdd      8:48   0    1G  0 disk 
+sde      8:64   0    1G  0 disk 
+sdf      8:80   0    1G  0 disk 
+sr0     11:0    1 1024M  0 rom  
+]0;root@student: /home/studentroot@student:/home/student# zpool create gzip /sd[K[Kdev/sdb
+]0;root@student: /home/studentroot@student:/home/student# zpool create gzip /dev/sdb[C- /dev/sdbn /dev/sdb[C[C[C[C[C[C[C[C[C[Kc
+]0;root@student: /home/studentroot@student:/home/student# zpool create gzip-n /dev/sdc[C[C[C[Kd[1P /dev/sdd[1P /dev/sdd[1P /dev/sdd[1P /dev/sdd[1P /dev/sdd[1P /dev/sddl /dev/sddz /dev/sdd4 /dev/sdd
+]0;root@student: /home/studentroot@student:/home/student# zpool create lz4 /dev/sdd[1P /dev/sddj /dev/sddb /dev/sdd[C[C[C[C[C[C[C[C[C[Ke
+]0;root@student: /home/studentroot@student:/home/student# zpool create lzjb /dev/sde[C[1P /dev/sde[1P /dev/sde[1P /dev/sde[1P /dev/sdez /dev/sdel /dev/sdee /dev/sde[C[C[C[C[C[C[C[C[C[Kf
+]0;root@student: /home/studentroot@student:/home/student# zpool list
+NAME     SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+gzip     960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+gzip-n   960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+lz4      960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+lzjb     960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+zle      960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+]0;root@student: /home/studentroot@student:/home/student# [K]0;root@student: /home/studentroot@student:/home/student# zfs set compression=gzip gzip
+]0;root@student: /home/studentroot@student:/home/student# zfs set compression=gzip gzip- gzip9 gzip[C[C[C[C[C-n
+]0;root@student: /home/studentroot@student:/home/student# zfs set compression=gzip-9 gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-nl gzip-nz gzip-n4 gzip-n[C[C[C[C[C[C[C[K[K[K[K[K[Klz4
+]0;root@student: /home/studentroot@student:/home/student# zfs set compression=lz4 lz4[1P lz4j lz4b lz4[C[C[C[C[Kjb
+]0;root@student: /home/studentroot@student:/home/student# zfs set compression=lzjb lzjb[1P lzjb[1P lzjb[1P lzjb[1P lzjbz lzjbl lzjbe lzjb[C[C[C[C[C[K[K[K[K[K zle
+]0;root@student: /home/studentroot@student:/home/student# zfs get compression
+NAME    PROPERTY     VALUE     SOURCE
+gzip    compression  gzip      local
+gzip-n  compression  gzip-9    local
+lz4     compression  lz4       local
+lzjb    compression  lzjb      local
+zle     compression  zle       local
+]0;root@student: /home/studentroot@student:/home/student# ls -l
+total 3284
+-rw-r--r-- 1 root root 3359372 Mar  2 09:16 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzo[Kip
+gzip/   gzip-n/ 
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip
+gzip/   gzip-n/ 
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip-n
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip-n[K[K[K[K[K[Klz
+lz4/  lzjb/ 
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lz4
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lz4[Kjb
+]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lzjb[K[K[K[Kzle/[K
+]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip
+total 1242
+-rw-r--r-- 1 root root 3359372 Mar 20 15:30 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip-n
+total 1239
+-rw-r--r-- 1 root root 3359372 Mar 20 15:30 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip-n[K[K[K[K[K[Klz4
+total 2041
+-rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# ls -l /lz4[Kjb
+total 2443
+-rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# ls -l /lzjb[K[K[K[Kzle
+total 3287
+-rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
+]0;root@student: /home/studentroot@student:/home/student# zfs list
+NAME     USED  AVAIL     REFER  MOUNTPOINT
+gzip    1.31M   831M     1.24M  /gzip
+gzip-n  1.30M   831M     1.23M  /gzip-n
+lz4     2.09M   830M     2.02M  /lz4
+lzjb    2.48M   830M     2.41M  /lzjb
+zle     3.30M   829M     3.23M  /zle
+]0;root@student: /home/studentroot@student:/home/student# zfs get compressratio
+NAME    PROPERTY       VALUE  SOURCE
+gzip    compressratio  2.64x  -
+gzip-n  compressratio  2.64x  -
+lz4     compressratio  1.62x  -
+lzjb    compressratio  1.35x  -
+zle     compressratio  1.01x  -
+]0;root@student: /home/studentroot@student:/home/student# exit
+exit
+]0;student@student: ~[01;32mstudent@student[00m:[01;34m~[00m$ exit
+logout
+Connection to 192.168.57.3 closed.
+]0;root@student-Mi-Laptop-Air-12-5: /home/studentroot@student-Mi-Laptop-Air-12-5:/home/student# exit
+exit
+
+Script done on 2023-03-20 18:33:44+03:00 [COMMAND_EXIT_CODE="0"]
