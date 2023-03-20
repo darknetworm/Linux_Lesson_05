@@ -51,10 +51,12 @@ sdd      8:48   0    1G  0 disk
 sde      8:64   0    1G  0 disk 
 sdf      8:80   0    1G  0 disk 
 sr0     11:0    1 1024M  0 rom  
+
 root@student:/home/student# zpool create gzip /dev/sdb
 root@student:/home/student# zpool create gzip-n /dev/sdc
 root@student:/home/student# zpool create lz4 /dev/sdd
 root@student:/home/student# zpool create lzjb /dev/sde
+root@student:/home/student# zpool create zle /dev/sdf
 root@student:/home/student# zpool list
 NAME     SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 gzip     960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
@@ -62,68 +64,56 @@ gzip-n   960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
 lz4      960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
 lzjb     960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
 zle      960M   110K   960M        -         -     0%     0%  1.00x    ONLINE  -
+
 root@student:/home/student# zfs set compression=gzip gzip
-root@student:/home/student# zfs set compression=gzip gzip-9 gzip-n
-]0;root@student: /home/studentroot@student:/home/student# zfs set compression=gzip-9 gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-n[1P gzip-nl gzip-nz gzip-n4 gzip-n[C[C[C[C[C[C[C[K[K[K[K[K[Klz4
-]0;root@student: /home/studentroot@student:/home/student# zfs set compression=lz4 lz4[1P lz4j lz4b lz4[C[C[C[C[Kjb
-]0;root@student: /home/studentroot@student:/home/student# zfs set compression=lzjb lzjb[1P lzjb[1P lzjb[1P lzjb[1P lzjbz lzjbl lzjbe lzjb[C[C[C[C[C[K[K[K[K[K zle
-]0;root@student: /home/studentroot@student:/home/student# zfs get compression
+root@student:/home/student# zfs set compression=gzip-9 gzip-n
+root@student:/home/student# zfs set compression=lz4 lz4
+root@student:/home/student# zfs set compression=lzjb lzjb
+root@student:/home/student# zfs set compression=zle zle
+root@student:/home/student# zfs get compression
 NAME    PROPERTY     VALUE     SOURCE
 gzip    compression  gzip      local
 gzip-n  compression  gzip-9    local
 lz4     compression  lz4       local
 lzjb    compression  lzjb      local
 zle     compression  zle       local
-]0;root@student: /home/studentroot@student:/home/student# ls -l
+
+root@student:/home/student# ls -l
 total 3284
 -rw-r--r-- 1 root root 3359372 Mar  2 09:16 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzo[Kip
-gzip/   gzip-n/ 
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip
-gzip/   gzip-n/ 
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip-n
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /gzip-n[K[K[K[K[K[Klz
-lz4/  lzjb/ 
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lz4
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lz4[Kjb
-]0;root@student: /home/studentroot@student:/home/student# cp War_and_Peace.txt /lzjb[K[K[K[Kzle/[K
-]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip
+root@student:/home/student# cp War_and_Peace.txt /gzip
+root@student:/home/student# cp War_and_Peace.txt /gzip-n
+root@student:/home/student# cp War_and_Peace.txt /lz4
+root@student:/home/student# cp War_and_Peace.txt /lzjb
+root@student:/home/student# cp War_and_Peace.txt /zle
+root@student:/home/student# ls -l /gzip
 total 1242
 -rw-r--r-- 1 root root 3359372 Mar 20 15:30 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip-n
+root@student:/home/student# ls -l /gzip-n
 total 1239
 -rw-r--r-- 1 root root 3359372 Mar 20 15:30 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# ls -l /gzip-n[K[K[K[K[K[Klz4
+root@student:/home/student# ls -l /lz4
 total 2041
 -rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# ls -l /lz4[Kjb
+root@student:/home/student# ls -l /lzjb
 total 2443
 -rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# ls -l /lzjb[K[K[K[Kzle
+root@student:/home/student# ls -l /zle
 total 3287
 -rw-r--r-- 1 root root 3359372 Mar 20 15:31 War_and_Peace.txt
-]0;root@student: /home/studentroot@student:/home/student# zfs list
+
+root@student:/home/student# zfs list
 NAME     USED  AVAIL     REFER  MOUNTPOINT
 gzip    1.31M   831M     1.24M  /gzip
 gzip-n  1.30M   831M     1.23M  /gzip-n
 lz4     2.09M   830M     2.02M  /lz4
 lzjb    2.48M   830M     2.41M  /lzjb
 zle     3.30M   829M     3.23M  /zle
-]0;root@student: /home/studentroot@student:/home/student# zfs get compressratio
+
+root@student:/home/student# zfs get compressratio
 NAME    PROPERTY       VALUE  SOURCE
 gzip    compressratio  2.64x  -
 gzip-n  compressratio  2.64x  -
 lz4     compressratio  1.62x  -
 lzjb    compressratio  1.35x  -
 zle     compressratio  1.01x  -
-]0;root@student: /home/studentroot@student:/home/student# exit
-exit
-]0;student@student: ~[01;32mstudent@student[00m:[01;34m~[00m$ exit
-logout
-Connection to 192.168.57.3 closed.
-
-]0;root@student-Mi-Laptop-Air-12-5: /home/studentroot@student-Mi-Laptop-Air-12-5:/home/student# exit
-exit
-
-Script done on 2023-03-20 18:33:44+03:00 [COMMAND_EXIT_CODE="0"]
